@@ -27,5 +27,11 @@ pipeline {
       }
     }
 
+    stage('nexus repository') {
+      steps {
+        sh 'mvn deploy'
+      }
+    }
+
   }
 }
