@@ -31,7 +31,7 @@ pipeline {
 
         stage('tomcat deploy') {
           steps {
-            sh 'scp /home/ubuntu/workspace/mavenrepo_master/target/studentapp-2.5-SNAPSHOT.war 172.31.41.105:/opt/tomcat/webapps'
+            sh 'sudo scp /home/ubuntu/workspace/mavenrepo_master/target/studentapp-2.5-SNAPSHOT.war 172.31.41.105:/opt/tomcat/webapps'
           }
         }
 
