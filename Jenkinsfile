@@ -29,6 +29,7 @@ pipeline {
 
     stage('nexus repository') {
       steps {
+        nexusArtifactUploader(nexusVersion: 'nexus3', protocol: 'http', nexusUrl: '172.31.4.22', groupId: 'com.jdevs', version: '2.5', repository: 'http://13.232.19.43:8081/repository/maven-snapshots/', credentialsId: 'nexus-cred')
         sh 'mvn deploy'
       }
     }
