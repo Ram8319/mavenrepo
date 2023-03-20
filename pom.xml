@@ -38,7 +38,7 @@
         <repository>
             <id>deployment</id>
             <name>Internal Releases</name>
-            <url>http://3.110.48.73:8081/repository/student-release//url>
+            <url>http://3.110.48.73:8081/repository/student-release/</url>
         </repository>
         <snapshotRepository>
             <id>deployment</id>
