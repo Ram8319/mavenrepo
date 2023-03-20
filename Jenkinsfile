@@ -25,9 +25,20 @@ pipeline {
     }
 
     stage('Sonar-checks') {
-      steps {
-        withSonarQubeEnv(installationName: 'sonar', credentialsId: 'sonar-token', envOnly: true) {
-          sh 'mvn sonar:sonar'
+      parallel {
+        stage('Sonar-checks') {
+          steps {
+            withSonarQubeEnv(installationName: 'sonar', credentialsId: 'sonar-token', envOnly: true) {
+              sh 'mvn sonar:sonar'
+            }
+
+          }
+        }
+
+        stage('Deploy-to-Tomcat') {
+          steps {
+            sh 'sudo scp /home/ubuntu/workspace/mavenrepo_master/target/studentapp-2.5-SNAPSHOT.war 172.31.3.101:/opt/tomcat/webapps'
+          }
         }
 
       }
